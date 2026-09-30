@@ -1,6 +1,6 @@
 <div align="left">
 
-[![LangChain & LangGraph DOC](assets/langchain_langgraph_header.gif)](https://github.com/Charan-Tj/LED-Ticker-GIF-Generator)
+[![LangChain & LangGraph Docs](assets/langchain_langgraph_header.gif)](https://github.com/Charan-Tj/LED-Ticker-GIF-Generator)
 
 </div>
 
