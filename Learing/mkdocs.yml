@@ -1,0 +1,11 @@
+site_name: DeepAgents Documentation
+
+# Use the Material theme for the premium tabbed look
+theme:
+  name: material
+
+# Turn on the extensions required to render the horizontal tabs
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true

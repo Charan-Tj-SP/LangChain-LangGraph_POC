@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepAgents Installation Guide</title>
+    <!-- Tailwind CSS for modern structure and utility styles -->
+    <script src="https://tailwindcss.com"></script>
+    <style>
+        /* Smooth underline transitions like professional docs */
+        .tab-underline {
+            transition: all 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-[#0f172a] text-[#f8fafc] font-sans antialiased min-h-screen flex items-center justify-center p-4">
+
+    <!-- Main Container Card -->
+    <div class="max-w-2xl w-full bg-[#1e293b] rounded-xl shadow-2xl border border-[#334155] p-6 md:p-8">
+        
+        <!-- Header Section -->
+        <div class="mb-6">
+            <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-white mb-2 flex items-center gap-2">
+                🚀 DeepAgents Installation
+            </h1>
+            <p class="text-sm text-[#94a3b8]">
+                Select your package manager below to get your workspace set up instantly.
+            </p>
+        </div>
+
+        <!-- ─── Horizontal Tabs Navigation (Matches Your Screenshot Design) ─── -->
+        <div class="border-b border-[#334155] mb-4">
+            <nav class="flex gap-6 text-sm font-semibold" aria-label="Tabs">
+                <!-- Pip Tab Button -->
+                <button onclick="switchTab('pip')" id="tab-pip" class="py-2.5 px-1 text-[#38bdf8] border-b-2 border-[#38bdf8] tab-underline focus:outline-none transition-colors">
+                    pip
+                </button>
+                <!-- UV Tab Button -->
+                <button onclick="switchTab('uv')" id="tab-uv" class="py-2.5 px-1 text-[#94a3b8] hover:text-[#f8fafc] border-b-2 border-transparent tab-underline focus:outline-none transition-colors">
+                    uv
+                </button>
+                <!-- Poetry Tab Button -->
+                <button onclick="switchTab('poetry')" id="tab-poetry" class="py-2.5 px-1 text-[#94a3b8] hover:text-[#f8fafc] border-b-2 border-transparent tab-underline focus:outline-none transition-colors">
+                    poetry
+                </button>
+            </nav>
+        </div>
+
+        <!-- ─── Content Panels Container ─── -->
+        <div class="space-y-4">
+            
+            <!-- PIP Content Block -->
+            <div id="content-pip" class="tab-content block">
+                <p class="text-sm text-[#cbd5e1] mb-3">Install via the standard stable package index:</p>
+                <div class="bg-[#0b0f19] rounded-lg p-4 font-mono text-sm border border-[#1e293b] flex items-center justify-between group">
+                    <code class="text-[#f1f5f9]"><span class="text-[#38bdf8]">pip</span> <span class="text-[#a7f3d0]">install deepagents</span></code>
+                </div>
+            </div>
+
+            <!-- UV Content Block -->
+            <div id="content-uv" class="tab-content hidden">
+                <p class="text-sm text-[#cbd5e1] mb-3">Install via the high-speed Rust package ecosystem:</p>
+                <div class="bg-[#0b0f19] rounded-lg p-4 font-mono text-sm border border-[#1e293b] flex items-center justify-between group">
+                    <code class="text-[#f1f5f9]"><span class="text-[#38bdf8]">uv pip</span> <span class="text-[#a7f3d0]">install deepagents</span></code>
+                </div>
+            </div>
+
+            <!-- POETRY Content Block -->
+            <div id="content-poetry" class="tab-content hidden">
+                <p class="text-sm text-[#cbd5e1] mb-3">Add as a dependency inside your lock environment:</p>
+                <div class="bg-[#0b0f19] rounded-lg p-4 font-mono text-sm border border-[#1e293b] flex items-center justify-between group">
+                    <code class="text-[#f1f5f9]"><span class="text-[#38bdf8]">poetry</span> <span class="text-[#a7f3d0]">add deepagents</span></code>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Verification Footer -->
+        <div class="mt-8 pt-6 border-t border-[#334155] text-xs text-[#64748b] flex justify-between items-center">
+            <span>Verified Version: v1.4.2</span>
+            <span class="italic">Solytics internal document</span>
+        </div>
+    </div>
+
+    <!-- ─── Native One-Click Tab Control Script ─── -->
+    <script>
+        function switchTab(activeTabId) {
+            // 1. Target all tab content blocks and hide them
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+            
+            // 2. Target all tab navigation buttons and reset their styles to inactive state
+            const buttons = document.querySelectorAll('nav button');
+            buttons.forEach(btn => {
+                btn.classList.remove('text-[#38bdf8]', 'border-[#38bdf8]');
+                btn.classList.add('text-[#94a3b8]', 'border-transparent');
+            });
+
+            // 3. Make the selected target layout block visible
+            document.getElementById(`content-${activeTabId}`).classList.remove('hidden');
+
+            // 4. Set active indicator highlights on the clicked button
+            const activeBtn = document.getElementById(`tab-${activeTabId}`);
+            activeBtn.classList.remove('text-[#94a3b8]', 'border-transparent');
+            activeBtn.classList.add('text-[#38bdf8]', 'border-[#38bdf8]');
+        }
+    </script>
+</body>
+</html>
